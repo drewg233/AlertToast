@@ -198,19 +198,23 @@ public struct AlertToast: View{
     
     ///Customize your alert appearance
     public var style: AlertStyle? = nil
+
+    public var paddingTop: CGFloat = 0
     
     ///Full init
     public init(displayMode: DisplayMode = .alert,
                 type: AlertType,
                 title: String? = nil,
                 subTitle: String? = nil,
-                style: AlertStyle? = nil){
+                style: AlertStyle? = nil,
+                paddingTop: CGFloat = 0) {
         
         self.displayMode = displayMode
         self.type = type
         self.title = title
         self.subTitle = subTitle
         self.style = style
+        self.paddingTop = paddingTop
     }
     
     ///Short init with most used parameters
@@ -324,7 +328,7 @@ public struct AlertToast: View{
             .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 6)
             .compositingGroup()
         }
-        .padding(.top)
+        .padding(.top, paddingTop)
     }
     
     ///Alert View
